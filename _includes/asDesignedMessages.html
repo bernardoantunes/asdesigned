@@ -1,0 +1,63 @@
+<div class="asDesignedMessageBox" id="asDesigned-first-message" style="display:none">
+    <div class="asDesigned-header">
+        <div class="asDesigned-caption">As Designed</div>
+        <div class="asDesigned-about">Help | About</div>
+
+        <div class="asDesigned-dialog">
+            <div class="asDesigned-message">
+            This site is design compatible! Do you want to see it as it was designed?</div>
+            <div class="buttons">
+                <a href='#' data-bind='click: actionYes '>Yes</a> | 
+                <a href='#' data-bind='click: actionNo '>No</a> | 
+                <a href='#' data-bind='click: actionLater '>Later</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="asDesignedMessageBox" id="asDesigned-interface" style="display:none">
+    <div class="asDesigned-header">
+        <div class="asDesigned-caption">As Designed</div>
+        <div class="asDesigned-about">Help | About</div>
+
+        <div class="asDesigned-dialog">
+            <!-- Author Screen data -->
+            <fieldset id="basic-data-fieldset">
+                <div class="field">
+                    <label title="Diagonal of the screen in inches"><i class="icon-resize-full"></i>Screen Size</label>
+                    <input data-bind="value: screenSizeDiagonal" type="text" id="screenSizeDiagonal" />″
+                </div>
+
+                <div class="field">
+                    <label title="Viewing device, it will be used to calculate the viewing distance"><i class="icon-picture"></i>Device</label>
+                    <select data-bind="options: devicesList, value: device, optionsText: 'description', optionsValue: 'id'"></select>
+                </div>
+
+                <div class="field">
+                    <label title="Viewing distance from the device"><i class="icon-eye-open"></i>Viewing distance</label>
+                    <input data-bind="value: viewingDistance" type="text" id="viewingDistance"/>″
+                </div>
+
+                <div class="field">
+                    <label title="Zoom it, if you prefer smaller or bigger"><i class="icon-search"></i>Zoom</label>
+                    <input data-bind="value: userReadability" type="text" id="userReadability"/>%
+                </div>
+            </fieldset>
+
+            <!-- User Screen data -->
+            <fieldset id="screen-resolution-fieldset">
+                <div class="field">
+                    <i class="icon-move"></i>
+                    <i class="icon-resize-horizontal"></i><span data-bind="text: screenWidth"></span>
+                    <i class="icon-resize-vertical"></i><span data-bind="text: screenHeight"></span>
+                </div>
+            </fieldset>
+
+            <div class="buttons">
+                <span id="actionPreview"><a href='#' data-bind='click: actionPreview '>Preview</a> | </span>
+                <span id="actionSave"><a href='#' data-bind='click: actionSave '>Save</a> | </span>
+                <a href='#' data-bind='click: actionCancel '>Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>

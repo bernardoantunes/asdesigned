@@ -1,0 +1,83 @@
+﻿//Design colors
+$settings-colors-pink: 		rgb(236, 121, 167);
+$settings-colors-orange: 	rgb(236, 167, 121);
+$settings-colors-yellow: 	rgb(236, 236, 121);
+$settings-colors-green: 	rgb(144, 236, 121);
+$settings-colors-blue: 		rgb(121, 167, 236);
+$settings-colors-lightgray:	rgb(216, 216, 216);
+$settings-colors-darkgray:	rgb( 89,  89,  89);
+
+.asDesignedMessageBox {
+	display: block;
+	font-size: 1em;
+	line-height: 1.5em;
+	background-color: $settings-colors-lightgray;
+	color: $settings-colors-darkgray;
+	border-bottom: thick solid $settings-colors-blue;
+	@include clearfix;
+
+	a {
+		text-decoration: none;
+		color: inherit;
+		&:hover {
+			font-weight: bold;
+			color: $settings-colors-blue;
+		}
+	}
+
+	i { padding-right: 0.5em; }
+
+    .asDesigned-header {
+		background-color: $settings-colors-lightgray;
+		@include clearfix;
+        .asDesigned-caption {
+        	display: inline-block;
+        	float: left;
+			background-color: $settings-colors-blue;
+			color: white;
+			padding: 0.5em 2em;
+			text-transform: uppercase;
+			font-weight: bold;
+        }
+
+        .asDesigned-about {
+			padding: 0.5em 1em;
+        	display: inline-block;
+        	float: right;
+			background-color: white;
+        }
+
+		.asDesigned-message {
+        	display: inline-block;
+			padding: 0.45em 1em;
+		}
+
+	    .asDesigned-dialog {
+
+			select, input, label { width: 3em; border: 0.125em solid #dadada; border-radius: 0.25em; padding: 0.2em; }
+			select { width: 7em; }
+			input:focus, select:focus { outline: none; border-color: #9ecaed; }
+
+			display: inline;
+
+	        #basic-data-fieldset,
+	        #screen-resolution-fieldset {
+	        	display: inline-block;
+				padding: 0.25em 0em;
+	        }
+
+			.buttons {
+				display: inline-block;
+				float: right;
+				padding: 0.5em 1em;
+			}
+
+			.field {
+				display: inline-block;
+				padding-left: 1em;
+			}
+		}
+
+    }
+
+}
