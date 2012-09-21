@@ -8,6 +8,11 @@ $settings-colors-lightgray:	rgb(216, 216, 216);
 $settings-colors-darkgray:	rgb( 89,  89,  89);
 
 .asDesignedMessageBox {
+position: relative;
+	//-webkit-box-shadow:  0 0 2.5em 2.5em rgba(20, 20, 20, 0.4);
+    //box-shadow:  0 0 2.5em 2.5em rgba(20, 20, 20, 0.4);
+
+	z-index: 999;
 	display: block;
 	font-size: 1em;
 	line-height: 1.5em;

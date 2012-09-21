@@ -7,5 +7,12 @@ permalink: /:title
 paginate: 10
 exclude: ["Rakefile", "LICENSE.txt", "CNAME"]
 title: AsDesigned
-url: http://asdesigned.unit.gs
+url: http://asdesigned.bernardoantunes.com
 github_user: bernardoantunes
+navigation:
+- text: Home
+  url: /index.html
+- text: Help
+  url: /help/index.html
+- text: About
+  url: /about/index.html

@@ -1,0 +1,49 @@
+﻿@import "UnitGS";
+
+$grid-debug: false;
+@if $grid-debug { body { color: #333; }}
+
+@include unitgs-set-grid-settings(
+	$number-of-columns: 24,
+	$number-of-active-columns: 24,
+	$font-size: 1,
+	$line-height: 1.6,
+	$gutter-width: 1
+	);
+
+@include unitgs-init-grid();
+
+html {
+	min-height: 100%;
+	overflow: auto;
+}
+
+//Lets set the grid.
+body{
+	//font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: 'Open Sans',sans-serif;
+	font-weight: 400;
+//	color: $settings-colors-verylightgray;
+	min-height: 100%;
+	overflow: auto;
+}
+
+
+header { @include grid-unit($font-size: 2.5, $margin-top: 1/2, $margin-bottom: 1/2); }
+footer { @include grid-unit($font-size: 0.75, $margin-top: 1, $margin-bottom: 1); }
+
+//480
+@media screen and (min-width: 30em) {
+}
+
+//640
+@media screen and (min-width: 40em) {
+}
+
+//720
+@media screen and (min-width: 45em) {
+}
+
+//960
+@media screen and (min-width: 60em) {
+}

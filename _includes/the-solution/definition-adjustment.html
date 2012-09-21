@@ -1,0 +1,23 @@
+<section id="definition-adjustment">
+
+<h2>2.1. Definition adjustment</h2>
+
+The simple fact that each device has its own resolution, size and definition makes a 16px font-size to have completly different sizes in 15.4" screen with 1280x720 and 1920x1200 resolutions, the difference is so big that to look good in one it has to look too big or too small in the other.
+
+The solution to this problem would be to set the body font-size to an absolute unit as inches.
+
+The current problem in that these units already exist in CSS but they rely on an old specification that says that all the screens are a low definition device, so lets decide the definition as 96px per inch. Everything in this assumption is an absurd... the story complicates so much that I am not going to talk about it, so that we don't loose focus of the problem and the solution.
+
+In the browser, the only useful mesurement that we can get is the screen width and height, that tells us the resolution, but not the definition. And in this moment we have full HD resolutions (1920x1080) in devices of all types and sizes from 5" smartphones to 50" TVs and more.
+
+So the first thing that the asDesign component asks is the your screen size. With that we can calculate how your definition and know the size of 16px on your computer.
+
+<h3>But how do you ensure that your user sees as you the designer saw it?</h3>
+
+The as designer component has two parameters, the first one is the resolution of the author's machine (designer).
+
+Calculating the ratio between the user and author's screen definition, we know how to adjust the font-size so that it has the same size in the user's screen as it had in the author's.
+
+<span class="note">Note: Yes, it means that we can draw on screen with "real" units precision as inches, milimeters, etc.. :)</span>
+
+</section>
