@@ -29,8 +29,8 @@ body{
 }
 
 
-header { @include grid-unit($font-size: 2.5, $margin-top: 1/2, $margin-bottom: 1/2); }
-footer { @include grid-unit($font-size: 0.75, $margin-top: 1, $margin-bottom: 1); }
+//header { @include grid-unit($font-size: 2.5, $margin-top: 1/2, $margin-bottom: 1/2); }
+footer { @include grid-line($font-size: 0.75, $margin-top: 1, $margin-bottom: 1); }
 
 //480
 @media screen and (min-width: 30em) {

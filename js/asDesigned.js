@@ -249,6 +249,13 @@ var AsDesignedInterfaceViewModel = function() {
     this.viewingDistance = ko.observable("");
     this.userReadability = ko.observable(100);
 
+    if(asDesignedSavedData.status === 'on') {
+        this.screenSizeDiagonal(asDesignedSavedData.screenSizeDiagonal);
+        this.device(asDesignedSavedData.device);
+        this.viewingDistance(asDesignedSavedData.viewingDistance);
+        this.userReadability(asDesignedSavedData.userReadability);
+    }
+
     //Automatically obtained data
     this.screenWidth = ko.observable(screen.width);
     this.screenHeight = ko.observable(screen.height);
@@ -311,7 +318,7 @@ var AsDesignedInterfaceViewModel = function() {
 
     //Action - Save
     this.actionSave = function() {
-        hideAsDesignedInterface();
+        //hideAsDesignedInterface();
 
         asDesignedSavedData.status = 'on';
         asDesignedSavedData.screenSizeDiagonal = this.screenSizeDiagonal();
@@ -341,7 +348,7 @@ var AsDesignedInterfaceViewModel = function() {
             catch(e) { }
         }
 
-        hideAsDesignedInterface();
+        //hideAsDesignedInterface();
         showAsDesignedBubbleMessage();
     }
 }
@@ -396,13 +403,15 @@ function asDesigned(authorScreenDefinition, authorViewingDistance)
     }
 
     //Lets check if we have already some settings.
-    if(asDesignedSavedData.status === null)
-    {
-        showAsDesignedFirstMessage();
-    }
+//    if(asDesignedSavedData.status === null)
+//    {
+//        showAsDesignedFirstMessage();
+//    }
+
+    showAsDesignedInterface();
 
     //$.cookie('asDesignedStatus', 'You need glasses!', { expires: 9999, path: '/' });
-    $.removeCookie('asDesignedStatus');    
+    //$.removeCookie('asDesignedStatus');    
 }
 
 	//var screenWidth = screen.width;

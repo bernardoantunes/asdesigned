@@ -7,16 +7,13 @@
 html, body {
 	min-height: 100%;
 	overflow: auto;
-	background-color: #ADADAD;
-	background-color: #EDECDD;
+	background-color: #ADA291;
 	color: #333;
 }
 
 #book-container {
-	background-color: #EEE;
-	background-color: #EDEDDD;
-
-	border-right: thin solid #DDD;
+	background-color: #C1B6A6;
+	//border: thin solid #DDD;
 
 	//Set box sizing to border-box
 	-webkit-box-sizing: border-box;
@@ -40,17 +37,20 @@ html, body {
     box-shadow: 0em 0em 0.5em 0 #CCC;
     box-shadow: 0em 0em 0.5em 0.5em #CCC;
     box-shadow: 0em 0em 0.5em 0.25em #ADADA6;
+	
+	-webkit-box-shadow: 0em 0em 0.5em 0.25em #ADA291;
+    box-shadow: 0em 0em 0.5em 0.25em #ADA291;
 
 	//display: inline-block;
 	background-color: white;
-	border-left: 3em solid rgb(121, 167, 236); //blue
-	border-left: 3em solid #999; //blue
-	border-left: 3em solid white; //blue
+	//border-left: 3em solid rgb(121, 167, 236); //blue
+	//border-left: 3em solid #999;
+	//border-left: 3em solid white;
 	width: 100%;
 	height: 100%;
 
 	max-width: 75.9715731823em;
-	margin: 2em auto;
+	margin: 0 auto;
 
 	//Set box sizing to border-box
 	-webkit-box-sizing: border-box;
@@ -59,15 +59,15 @@ html, body {
 	     -o-box-sizing: border-box;
 	        box-sizing: border-box;
 
-	padding: 0 6em 0 3em;
+	padding: 0 1.5em;
 	@include clearfix();
 }
 
 #book-gutter {
 	width: 100%;
 	height: 100%;
-	border-left: thin dashed #CCC;
-	border-right: thin dashed #CCC;
+//	border-left: thin dashed #CCC;
+//	border-right: thin dashed #CCC;
 	//Set box sizing to border-box
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -87,17 +87,30 @@ html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	padding: 1.5em;
 }
-
-
 
 //480
 @media screen and (min-width: 30em) {
+	#book-container {
+		padding: 1.5em;
+	}
+	#book-page-content {
+		padding: 1em;
+	}
 }
 
 //640
 @media screen and (min-width: 40em) {
+	#book-page {
+		padding: 0 3em;
+	}
+	#book-gutter {
+		border-left: thin dashed #CCC;
+		border-right: thin dashed #CCC;
+	}
+	#book-page-content {
+		padding: 1.5em;
+	}
 }
 
 //720
@@ -106,4 +119,10 @@ html, body {
 
 //960
 @media screen and (min-width: 60em) {
+	#book-container {
+		padding: 3em;
+	}
+	#book-page {
+		padding: 0 6em;
+	}
 }

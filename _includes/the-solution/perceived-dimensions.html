@@ -1,20 +1,39 @@
 <section id="perceived-dimensions">
 
-<h2>2.2. Perceived dimensions</h2>
+<h2>2.3. Perceived Dimensions</h2>
 
-To make a design to be with exact same dimensions as it was designed is very good, but the goal of the design is not about milimetric precision, but with perception precision. What I mean with this is that it does not matter if that letter is the original size if the user is too far to be able to read it.
+<p>
+	To make a design to have the exact same dimensions as it was designed is good, but the goal of a design is not about millimetric precision, but perception precision.<br/>
+	What I mean with this is that it does not matter if that letter has the original size if the user is perceiving it from a completely different viewing distance.
+</p>
 
-As an example, we can use webpage that was designed in a 15 inches laptop at an aproximated distance of 20 inches and the user is trying to see it in an 50 inches at 75 inches distance, that nice and big quarter of an inch is not that big anymore, is it?
+<p>If we design a website in a 15 inches screen laptop at an approximated viewing distance of 20 inches, and the user will see it on an 50 inches at 75 inches distance, that nice and big quarter of an inch is not that big anymore, is it?</p>
 
-That is why the second parameter that the asDesigned component needs from the author and you is the viewing distance.
-It gives you a list of average viewing distances per device, but you can set the value to your personal viewing distance.
+<p>A smartphone in front of your eyes can have the same perceived dimensions as a TV that is far away from you.</p>
 
-Calculating the viewing angle of one unit at the author's viewing distance and the user's, we calculate the difference ratio and apply it to the global adjustment ratio.
+<p class="todo">
+Insert here:<br/>
+An illustration that shows the viewing angle for the two devices. Check your drawings. ;)
+</p>
 
-So now, when the screen is further away the font size is scaled up the and when the screen is closer we scale it down.
+<p>This is why the second parameter of the asDesigned component is the viewing distance of the author. Knowing the viewing distance of the author, we know how he was perceiving his own design.</p>
 
-This way, the perceived dimension and correspondent design and readability is preserved.
+<p>Calculating the viewing angle of one unit at the author's viewing distance and the user's, we calculate the difference ratio and apply it to the global adjustment ratio.</p>
 
-<span class="example">Example: A TV watched from a couch that is far, can have the same perceived dimensions as a tablet or even a smartphone is hands. In this situation the user will perceive the website in the same way, even the media queries will be correctly applied to the perceived dimensions.</span>
+<p class="todo">
+Insert here:<br/>
+The formula and create an example.
+</p>
+
+<p>When the screen is further away the font size and other dimensions are scaled up the and when the screen is closer we scale them down.</p>
+
+<p>Now your design is perceived as you designed it, the perceived dimension and corresponding design and readability are preserved.</p>
+
+<p class="example">
+	Example: Select your device from the list to get the default viewing distance, and/or adjust/set the viewing distance.
+	If you are at 20 inches nothing will happen, because it was as I designed it, so you are seeing it the same way as I did.
+	But, if you put yourself further away and adjust the viewing distance, you will see that you will continue to see it with the same perceiving dimensions.
+	Press preview and play with it.
+</p>
 
 </section>

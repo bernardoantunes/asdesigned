@@ -1,8 +1,49 @@
-<section id="the-problem">
-<h1>1. The Problem</h1>
+<section id="the-proof-of-concept">
 
-Why was this created?
+<h1>3. The Proof of Concept</h1>
 
-..........
+<p>The growing heterogeneity of the devices and their specific characteristics is making difficult impossible to design a website that is well perceived in all the devices.</p>
+
+<p>In the begging there was the iPhone and things were easy 320 portrait and 480 landscape, right? Then the other devices came along, but the iPhone/iPod were the only relevant devices. So everyone started making sites supporting smartphones (320px width and 480px height) and for laptops, a 960px layout was enough. But then, the iPhone got a retina display and the iPad appeared, and the retina also on the iPad, and the new iPhone5 with a different horizontal resolution. Suddenly, the 320px were not "the smartphone dimensions" anymore. And... all the Apple laptops with a list of screen sizes from 11 inches all the way up, and the MacBook Pro with retina. And we are just playing with Apple.</p>
+
+<p>If the world was just Apple, we could still make an (big) effort to make things just on their devices. But the truth is that Apple is not the number one on mobile devices. Android is, and Android has all the screen sizes and resolutions that you can imagine.</p>
+
+<p>And Microsoft is coming out of their single resolution to embrace more resolutions with the Windows Phone 8.</p>
+
+<p>Then there are all the Android Tablets, the 7", 9" the 10" and all others. There are even tablets bigger than 20", cool!</p>
+
+<p>Now Microsoft with new Windows 8, everything will be a tablet or a laptop or both...</p>
+
+<p>Reality is so much different and exciting than it was 10 years ago.</p>
+
+<p>Phones convert into tablets (ex: Asus PadPhone), tablets convert into laptops (ex: Microsoft Surface), laptops convert into desktops (with a docking station), desktops connect to the TV, TVs that are Smart, devices connect wirelessly (or not) to external screens... and... everything is everything and everything is everywhere.</p>
+
+<p>We got to a situation where media queries and responsive design are not enough and the websites are not being displayed as designed. The resolution of the devices is not an indicator of anything, but just the number of pixels (and even that is not 100% true anymore with the new subpixel screens).</p>
+
+<p>This site is a proof of concept that it is possible to fix the way sites are being created by asking the browser makers, that currently are also the OS makers, to give us (authors) a little bit more information about the devices.</p>
+
+<p>
+	First, make a setting that make the units as in, cm, etc. to be correct, just like the did with the box-sizing.<br/>
+	For example: css-units: real;.<br/>
+	When the window is shown in another screen, just recalculate the CSS.<br/>
+	Easy, right?
+</p>
+
+<p class="todo">
+Insert here:<br/>
+Talk about the pixel-ration nonsense!!!
+</p>
+
+<p>
+	Then tell us the active profile that is being used in the media queries, even better the viewing distance. You can have the profiles in the browser with the user settings telling the viewing distance.<br/>
+	And when the user connects the tablet to the keyboard, the profile changes and the CSS is recalculated.
+</p>
+
+<p>In this site, you have a toolbar that simulates those values and allows you to feel the advantages today.</p>
+
+<p>Now a personal request, please allow expressions to be executed in the CSS properties. It can be simples, see Sass, Less, etc.. But do what they cannot, pass all the context of execution to the CSS so that we can take decisions based on it. :D</p>
+
+<p>Lets give the control back to the designer and make everything much easier. We don't need more and more units, the vw, hw, etc. are all possible to calculate with real data and some math in the css. Or if you want to do it now, with javascript.
+Everything is possible and not that difficult to make, but all this should be done entirely in the stylesheet.</p>
 
 </section>

@@ -1,0 +1,33 @@
+<section id="real-units">
+
+<h2>2.1. Real Units</h2>
+
+<p>The simple fact that each device has its own resolution, size and definition makes a 16px font-size to have completely different sizes between a 15.4" laptop screen with a resolution of 1280x720 and one with 1920x1200, the difference is so big that to look good in one it has to look too big or too small in the other.</p>
+
+<p>This gets even worse when you have full HD resolutions (1920x1080) in devices of all types and sizes from 5" smartphones to 50" TVs and more. You have all the possible combinations. What I want you to acknowledge is that the resolution by it self is not a solution, by consequence the media queries based in px are not a solution anymore.</p>
+
+<p>The solution to this problem would be to set your site dimensions in an absolute unit such as inches, so that it has the same size in all devices no matter what definition.</p>
+
+<p>Wait... we already have that, right? Wrong! These units already exist in CSS but they rely on an old specification that says that all screens are a low definition device, and sets a constant of 96px per inch. Everything in this assumption is an absurd... the story complicates so much that I am not going to talk about it, so that we don't loose focus of the problem and the solution.</p>
+
+<p>In the browser we can get the screen width and height that tells us the resolution, but not the definition. So the first thing that the asDesign component needs to know is the screen size. With that is possible to calculate how the definition and know the real size of 16px on your computer.</p>
+
+<p class="todo">
+Insert here:<br/>
+The formula of the calculation of the real units.<br/>
+Insert an example for your computer.<br/>
+</p>
+
+<p>Do you use Google Docs of Office Web Documents? Did you noticed that even when you set your page size to A4 the dimensions are not correct? (Unless you happen to have a 96ppi or adjusted perfectly your browser zoom).<br/>The only thing that they need to know is the screen size to make the dimensions correct.</p>
+
+<p class="example">Lets see it in action:
+	You need to have a screen big enough to contain the width of an A4 (210×297 millimeters or 8.27×11.69 inches) sheet.
+	On the toolbar on the top of the screen insert your screen dimensions in inches, but leave the other settings unchanged (the Device to "notset", Viewing Distance to 0 or empty and the Zoom to 100), and press preview.
+	Now get a A4 piece of paper and put it in front of your screen.
+	It should have the exact dimensions, if not, check your browser zoom (Ctrl+0 should reset it to 100%) and your browser default font size definitions, they should be at 16px.<br/>
+	Yes, I respect the user settings, I use ems from the ground up. Can I make sure that the user sees the exact dimensions even with those settings? Yes, but that is not important right now.
+</p>
+
+<p class="note">Note: This allows us to design on screen with "real" units precision, inches, millimeters, etc.. :)</p>
+
+</section>

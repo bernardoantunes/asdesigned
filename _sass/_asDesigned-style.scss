@@ -8,6 +8,13 @@ $settings-colors-blue: rgb(121, 167, 236);
 
 $settings-colors-links: $settings-colors-blue;
 
+// Delete this class when the site is ready.
+.todo {
+	text-indent: 0;
+	background-color: yellow;
+	color: red;
+}
+
 //Here I set the scale definitions.
 @function grid-modular-scale($multiple)
 {
@@ -33,7 +40,13 @@ h1 { @include grid-line(grid-modular-scale(3), $margin-top: 3/4, $margin-bottom:
 h2 { @include grid-line(grid-modular-scale(1), $margin-top: 3/4, $margin-bottom: 1/4, $fit-method: ceil); }
 h3 { @include grid-line(grid-modular-scale(1), $margin-top: 3/4, $margin-bottom: 1/4, $fit-method: ceil); }
 
-p { @include grid-line(1, $margin-bottom: 1); }
+#intro-message {
+	@include grid-line(grid-modular-scale(1), $margin-top: 0, $margin-bottom: 1, $fit-method: bestfit);
+	font-style: italic;
+	color: #666;
+}
+
+p { @include grid-line(1, $margin-bottom: 1); text-indent: 1.6em; text-align: justify; }
 
 //Change the selection color.
 $text-selector-prefixes: ("-webkit-","-moz-", "-o-", "");
@@ -70,12 +83,40 @@ nav{
 }
 
 header {
-	@include grid-unit($font-size: 2.5, $margin-top: 0, $margin-bottom: 1);
+	@include grid-unit($font-size: 1.5, $margin-top: 0, $margin-bottom: 1);
 	font-weight: 800;
 	text-align: center;
 
+	> h1 { color: $settings-colors-lessdarkergray; }
+	> h1 > span { color: $settings-colors-blue; }
 }
 
 footer { text-align: center; }
 
 * { transition: all 1s; }
+
+//480
+@media screen and (min-width: 30em) {
+
+}
+
+//640
+@media screen and (min-width: 40em) {
+	header {
+		@include grid-line($font-size: 1.75, $margin-top: 0, $margin-bottom: 1);
+	}
+}
+
+//720
+@media screen and (min-width: 45em) {
+	header {
+		@include grid-line($font-size: 2, $margin-top: 0, $margin-bottom: 1);
+	}
+}
+
+//960
+@media screen and (min-width: 60em) {
+	header {
+		@include grid-line($font-size: 2.5, $margin-top: 0, $margin-bottom: 1);
+	}
+}
