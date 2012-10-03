@@ -76,8 +76,8 @@ function updateMediaRulesEmByFactor(factor) {
 
                     //First lets create a list with the original values.
                     var mediaRulesOriginalValues = new Array();
-                    for(i = 0; i < originalLenght; i++) {
-                        mediaRulesOriginalValues.push(removeMediaRuleSufix(getMediaRuleItem(mediaRules, i)));
+                    for(k = 0; k < originalLenght; k++) {
+                        mediaRulesOriginalValues.push(removeMediaRuleSufix(getMediaRuleItem(mediaRules, k)));
                     }
 
                     //If the adjustment is one, we can clean the adjustments altogether
@@ -86,12 +86,12 @@ function updateMediaRulesEmByFactor(factor) {
                         if(!isFirstTime)
                         {
                             //Lets add the original rules.
-                            for(i = 0; i < originalLenght; i++) {
-                                mediaRules.appendMedium(mediaRulesOriginalValues[i]);
+                            for(k = 0; k < originalLenght; k++) {
+                                mediaRules.appendMedium(mediaRulesOriginalValues[k]);
                             }
 
                             //Lets remove all other rules.
-                            for(i = 0; i < (originalLenght * 2); i++) {
+                            for(k = 0; k < (originalLenght * 2); k++) {
                                 mediaRules.deleteMedium(getMediaRuleItem(mediaRules, 0));
                             }
 
@@ -101,28 +101,28 @@ function updateMediaRulesEmByFactor(factor) {
                     else {
                         if(!isFirstTime) {
                             //We delete previous adjustments.
-                            for(i = 0; i < originalLenght; i++) {
+                            for(k = 0; k < originalLenght; k++) {
                                 //Add the new mediarule.
                                 mediaRules.deleteMedium(getMediaRuleItem(mediaRules, originalLenght));
                             }
                         }
                         else {
                             //Lets add original rules Sufixed so that they return false.
-                            for(i = 0; i < originalLenght; i++) {
-                                mediaRules.appendMedium(addMediaRuleSufix(mediaRulesOriginalValues[i]));
+                            for(k = 0; k < originalLenght; k++) {
+                                mediaRules.appendMedium(addMediaRuleSufix(mediaRulesOriginalValues[k]));
                             }
                         }
                         
                         //And add the new adjustments.
-                        for(i = 0; i < originalLenght; i++) {
+                        for(k = 0; k < originalLenght; k++) {
                             //Add the new mediarule.
-                            mediaRules.appendMedium(updateMediaRuleEmByFactor(mediaRulesOriginalValues[i], factor));
+                            mediaRules.appendMedium(updateMediaRuleEmByFactor(mediaRulesOriginalValues[k], factor));
                         }
 
                         //Lets delete the original values.
                         if(isFirstTime) {
                             //Lets remove the original rules.
-                            for(i = 0; i < originalLenght; i++) {
+                            for(k = 0; k < originalLenght; k++) {
                                 mediaRules.deleteMedium(getMediaRuleItem(mediaRules, 0));
                             }
                         }
