@@ -48,6 +48,17 @@ h3 { @include grid-line(grid-modular-scale(1), $margin-top: 3/4, $margin-bottom:
 
 p { @include grid-line(1, $margin-bottom: 1); text-indent: 1.6em; text-align: justify; }
 
+.math-formula-container {
+	width: 100%;
+	text-align: center;
+}
+.math-formula {
+	display: inline-block;
+	color: #444;
+
+	p { text-indent: 0em; }
+}
+
 //Change the selection color.
 $text-selector-prefixes: ("-webkit-","-moz-", "-o-", "");
 @each $text-selector-prefix in $text-selector-prefixes {
@@ -93,7 +104,7 @@ header {
 
 footer { text-align: center; }
 
-* { transition: all 1s; }
+//* { transition: all 1s; }
 
 //480
 @media screen and (min-width: 30em) {

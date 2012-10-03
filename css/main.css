@@ -220,25 +220,41 @@ p {
   text-align: justify;
 }
 
-/* line 54, ../_sass/_asDesigned-Style.scss */
+/* line 51, ../_sass/_asDesigned-Style.scss */
+.math-formula-container {
+  width: 100%;
+  text-align: center;
+}
+
+/* line 55, ../_sass/_asDesigned-Style.scss */
+.math-formula {
+  display: inline-block;
+  color: #444;
+}
+/* line 59, ../_sass/_asDesigned-Style.scss */
+.math-formula p {
+  text-indent: 0em;
+}
+
+/* line 65, ../_sass/_asDesigned-Style.scss */
 ::-webkit-selection {
   background: #777;
   color: white;
 }
 
-/* line 54, ../_sass/_asDesigned-Style.scss */
+/* line 65, ../_sass/_asDesigned-Style.scss */
 ::-moz-selection {
   background: #777;
   color: white;
 }
 
-/* line 54, ../_sass/_asDesigned-Style.scss */
+/* line 65, ../_sass/_asDesigned-Style.scss */
 ::-o-selection {
   background: #777;
   color: white;
 }
 
-/* line 54, ../_sass/_asDesigned-Style.scss */
+/* line 65, ../_sass/_asDesigned-Style.scss */
 ::selection {
   background: #777;
   color: white;
@@ -246,36 +262,36 @@ p {
 
 /* ######################################################### */
 /*                       asDesigned                          */
-/* line 66, ../_sass/_asDesigned-Style.scss */
+/* line 77, ../_sass/_asDesigned-Style.scss */
 img {
   max-width: 100%;
 }
 
-/* line 73, ../_sass/_asDesigned-Style.scss */
+/* line 84, ../_sass/_asDesigned-Style.scss */
 nav a {
   color: #eeeeee;
   font-weight: 800;
   text-transform: uppercase;
   text-decoration: none;
 }
-/* line 79, ../_sass/_asDesigned-Style.scss */
+/* line 90, ../_sass/_asDesigned-Style.scss */
 nav a:visited {
   color: #eeeeee;
 }
-/* line 80, ../_sass/_asDesigned-Style.scss */
+/* line 91, ../_sass/_asDesigned-Style.scss */
 nav a:hover {
   color: #79a7ec;
 }
-/* line 81, ../_sass/_asDesigned-Style.scss */
+/* line 92, ../_sass/_asDesigned-Style.scss */
 nav a.current {
   background-color: #ec79a7;
 }
-/* line 82, ../_sass/_asDesigned-Style.scss */
+/* line 93, ../_sass/_asDesigned-Style.scss */
 nav a:hover.current {
   color: #eeeeee;
 }
 
-/* line 85, ../_sass/_asDesigned-Style.scss */
+/* line 96, ../_sass/_asDesigned-Style.scss */
 header {
   font-size: 1.5em;
   line-height: 2.13333;
@@ -299,27 +315,22 @@ header {
   font-weight: 800;
   text-align: center;
 }
-/* line 90, ../_sass/_asDesigned-Style.scss */
+/* line 101, ../_sass/_asDesigned-Style.scss */
 header > h1 {
   color: #444444;
 }
-/* line 91, ../_sass/_asDesigned-Style.scss */
+/* line 102, ../_sass/_asDesigned-Style.scss */
 header > h1 > span {
   color: #79a7ec;
 }
 
-/* line 94, ../_sass/_asDesigned-Style.scss */
+/* line 105, ../_sass/_asDesigned-Style.scss */
 footer {
   text-align: center;
 }
 
-/* line 96, ../_sass/_asDesigned-Style.scss */
-* {
-  transition: all 1s;
-}
-
 @media screen and (min-width: 40em) {
-  /* line 105, ../_sass/_asDesigned-Style.scss */
+  /* line 116, ../_sass/_asDesigned-Style.scss */
   header {
     font-size: 1.75em;
     line-height: 1.82857;
@@ -330,7 +341,7 @@ footer {
   }
 }
 @media screen and (min-width: 45em) {
-  /* line 112, ../_sass/_asDesigned-Style.scss */
+  /* line 123, ../_sass/_asDesigned-Style.scss */
   header {
     font-size: 2em;
     line-height: 1.6;
@@ -341,7 +352,7 @@ footer {
   }
 }
 @media screen and (min-width: 60em) {
-  /* line 119, ../_sass/_asDesigned-Style.scss */
+  /* line 130, ../_sass/_asDesigned-Style.scss */
   header {
     font-size: 2.5em;
     line-height: 1.92;

@@ -22,6 +22,33 @@ function updateMediaRuleEmByFactor(mediaRule, factor) {
     return result;
 }
 
+//This function gets the media rule from the array, but it needs to make a test to support ie.
+//Yes, it can be optimized. But for the proof of context is enough. :) 
+function getMediaRuleItem(mediaRules, index)
+{
+    return mediaRules[index] != undefined ? mediaRules[index] : mediaRules.item(index);
+}
+
+//The media rule Sufix used to cancel the original rules.
+var mediaRuleSufix = " and (max-width: 0px)";
+function isMediaRuleSufixed(mediaRule) {
+    return mediaRule.indexOf(mediaRuleSufix) !== -1;
+    //return mediaRule.slice(-mediaRuleSufix.length) == mediaRuleSufix;
+}
+
+//Returns the media rule without the Sufix.
+function removeMediaRuleSufix(mediaRule) {
+    return mediaRule.replace(mediaRuleSufix,'');
+    //if(isMediaRuleSufixed(mediaRule))
+    //    return mediaRule.slice(0, mediaRule.length - mediaRuleSufix.length);
+    //return mediaRule;
+}
+
+//Returns the media rule with the Sufix.
+function addMediaRuleSufix(mediaRule) {
+    return mediaRule + mediaRuleSufix;
+}
+
 //Updates All the media Em value by a factor.
 function updateMediaRulesEmByFactor(factor) {
     var styleSheets = document.styleSheets;
@@ -41,40 +68,66 @@ function updateMediaRulesEmByFactor(factor) {
                 mediaRules = cssRule.media;
                 //Apenas se for uma CSSMediaRule.
                 if (mediaRules != undefined) {
-                    mediaRulesOriginalValues = mediaRules.originalValues;
 
-                    //Se ainda nao tivermos guardado os valores originais, vamos guarda-los.
-                    if (mediaRulesOriginalValues == undefined) {
+                    //----------------------------------------------------------------------
+                    //console.log("mediaRules.length = %d;", mediaRules.length);
+                    var isFirstTime = !isMediaRuleSufixed(getMediaRuleItem(mediaRules, 0));
+                    var originalLenght = mediaRules.length / (isFirstTime ? 1 : 2);
 
-                        //Vamos criar um array para guardar os valores.
-                        mediaRulesOriginalValues = new Array();
-
-                        //Vamos fazer uma copia dos valores originais.
-                        for (l = 0; l < mediaRules.length; l++) {
-                            //Esta manhozisse e por causa do IE que obriga a utilizacao da funcao item para obter o elemento.
-                            mediaRulesOriginalValues.push(mediaRules[l] != undefined ? mediaRules[l] : mediaRules.item(l));
-                        }
-
-                        //Vamos os valores originais na lista de MediaRules.
-                        mediaRules.originalValues = mediaRulesOriginalValues;
+                    //First lets create a list with the original values.
+                    var mediaRulesOriginalValues = new Array();
+                    for(i = 0; i < originalLenght; i++) {
+                        mediaRulesOriginalValues.push(removeMediaRuleSufix(getMediaRuleItem(mediaRules, i)));
                     }
 
-                    //Vamos percorrer a lista de MediaRules.
-                    for (k = 0; k < mediaRules.length; k++) {
-                        var newMediaRule = updateMediaRuleEmByFactor(mediaRulesOriginalValues[k], factor);
-                        //Only update if the rule changed something.
-                        //if (mediaRulesOriginalValues[k] != newMediaRule) {
-                        if ((mediaRules[0] != undefined ? mediaRules[0] : mediaRules.item(0)) != newMediaRule) {
-                            mediaRules.appendMedium(newMediaRule);
-                            //Esta manhozisse e por causa do IE que obriga a utilizacao da funcao item para obter o elemento.
-                            mediaRules.deleteMedium(mediaRules[0] != undefined ? mediaRules[0] : mediaRules.item(0));
+                    //If the adjustment is one, we can clean the adjustments altogether
+                    if(factor === 1) {
+                        //Only correct if the values were already changed before.
+                        if(!isFirstTime)
+                        {
+                            //Lets add the original rules.
+                            for(i = 0; i < originalLenght; i++) {
+                                mediaRules.appendMedium(mediaRulesOriginalValues[i]);
+                            }
+
+                            //Lets remove all other rules.
+                            for(i = 0; i < (originalLenght * 2); i++) {
+                                mediaRules.deleteMedium(getMediaRuleItem(mediaRules, 0));
+                            }
+
                         }
                     }
+                    //If there is an adjustment to be made.
+                    else {
+                        if(!isFirstTime) {
+                            //We delete previous adjustments.
+                            for(i = 0; i < originalLenght; i++) {
+                                //Add the new mediarule.
+                                mediaRules.deleteMedium(getMediaRuleItem(mediaRules, originalLenght));
+                            }
+                        }
+                        else {
+                            //Lets add original rules Sufixed so that they return false.
+                            for(i = 0; i < originalLenght; i++) {
+                                mediaRules.appendMedium(addMediaRuleSufix(mediaRulesOriginalValues[i]));
+                            }
+                        }
+                        
+                        //And add the new adjustments.
+                        for(i = 0; i < originalLenght; i++) {
+                            //Add the new mediarule.
+                            mediaRules.appendMedium(updateMediaRuleEmByFactor(mediaRulesOriginalValues[i], factor));
+                        }
 
-                    //DELETE AFTER TEST
-                    //Vamos percorrer a lista de MediaRules.
-                    //for (k = 0; k < mediaRules.length; k++)
-                    //    document.write(cssRule.media[k] + '</br>');
+                        //Lets delete the original values.
+                        if(isFirstTime) {
+                            //Lets remove the original rules.
+                            for(i = 0; i < originalLenght; i++) {
+                                mediaRules.deleteMedium(getMediaRuleItem(mediaRules, 0));
+                            }
+                        }
+                    }
+                    //----------------------------------------------------------------------
 
                 }
             }
@@ -82,6 +135,73 @@ function updateMediaRulesEmByFactor(factor) {
     }
 }
 
+// //Updates All the media Em value by a factor.
+// function updateMediaRulesEmByFactor(factor) {
+//     var styleSheets = document.styleSheets;
+//     var cssRules, cssRule, mediaRules, mediaRulesOriginalValues = null;
+//     //Vamos percorrer todos os styleSheets.
+//     for (i = 0; i < styleSheets.length; i++) {
+
+//         //Vamos obter a lista de CSSRules no StyleSheet em contexto.
+//         cssRules = document.styleSheets[i].cssRules;
+
+//         if(cssRules != null) {
+
+//             //Vamos percorrer todos as cssRules.
+//             for (j = 0; j < cssRules.length; j++) {
+//                 cssRule = cssRules[j];
+//                 //MediaList
+//                 mediaRules = cssRule.media;
+//                 //Apenas se for uma CSSMediaRule.
+//                 if (mediaRules != undefined) {
+//                     mediaRulesOriginalValues = mediaRules.originalValues;
+
+//                     //Se ainda nao tivermos guardado os valores originais, vamos guarda-los.
+//                     if (mediaRulesOriginalValues == undefined) {
+
+// //console.log("mediaRulesOriginalValues == undefined");
+//                         //Vamos criar um array para guardar os valores.
+//                         mediaRulesOriginalValues = new Array();
+
+//                         //Vamos fazer uma copia dos valores originais.
+//                         for (l = 0; l < mediaRules.length; l++) {
+//                             //Esta manhozisse e por causa do IE que obriga a utilizacao da funcao item para obter o elemento.
+//                             mediaRulesOriginalValues.push(mediaRules[l] != undefined ? mediaRules[l] : mediaRules.item(l));
+//                         }
+
+//                         //Vamos os valores originais na lista de MediaRules.
+//                         mediaRules.originalValues = mediaRulesOriginalValues;
+// //console.log("mediaRules.originalValues = %s;", mediaRulesOriginalValues);
+//                     }
+
+// //console.log("mediaRules.length = %d;", mediaRules.length);
+//                     //Vamos percorrer a lista de MediaRules.
+//                     var max = mediaRules.length;
+//                     for (k = 0; k < max; k++) {
+//                         var newMediaRule = updateMediaRuleEmByFactor(mediaRulesOriginalValues[k], factor);
+//                         //Only update if the rule changed something.
+//                         //if (mediaRulesOriginalValues[k] != newMediaRule) {
+// //console.log("var newMediaRule = %s;", newMediaRule);
+//                         if ((mediaRules[0] != undefined ? mediaRules[0] : mediaRules.item(0)) != newMediaRule) {
+//                             mediaRules.appendMedium("screen and (max-width: 0px)");
+//                             mediaRules.appendMedium(newMediaRule);
+//                             //Esta manhozisse e por causa do IE que obriga a utilizacao da funcao item para obter o elemento.
+//                             //mediaRules.deleteMedium(mediaRules[0] != undefined ? mediaRules[0] : mediaRules.item(0));
+// //console.log("mediaRules.appendMedium(newMediaRule);");
+// ///console.log("###################################################");
+//                         }
+//                     }
+
+//                     //DELETE AFTER TEST
+//                     //Vamos percorrer a lista de MediaRules.
+//                     //for (k = 0; k < mediaRules.length; k++)
+//                     //    document.write(cssRule.media[k] + '</br>');
+
+//                 }
+//             }
+//         }
+//     }
+// }
 
 //Returns the viewing angle in degrees.
 function calculateViewingAngle(distance, diameter)
@@ -391,16 +511,16 @@ function applyAsDesignedAdjustment(screenSizeDiagonal, viewingDistance, userRead
 
 function asDesigned(authorScreenDefinition, authorViewingDistance)
 {
-    //Sets the author data.
-    authorSettings.screenDefinition = authorScreenDefinition;
-    authorSettings.viewingDistance = authorViewingDistance;
+    // Handler for .ready() called.
+    $(function() {
+        authorSettings.screenDefinition = authorScreenDefinition;
+        authorSettings.viewingDistance = authorViewingDistance;
 
-//FOR TESTS ONLY
-
-    if(asDesignedSavedData.status === 'on') {
-        applyAsDesignedAdjustment(
-            asDesignedSavedData.screenSizeDiagonal, asDesignedSavedData.viewingDistance, asDesignedSavedData.userReadability);
-    }
+        if(asDesignedSavedData.status === 'on') {
+            applyAsDesignedAdjustment(
+                asDesignedSavedData.screenSizeDiagonal, asDesignedSavedData.viewingDistance, asDesignedSavedData.userReadability);
+        }
+    });    //Sets the author data.
 
     //Lets check if we have already some settings.
 //    if(asDesignedSavedData.status === null)
