@@ -46,7 +46,7 @@ h3 { @include grid-line(grid-modular-scale(1), $margin-top: 3/4, $margin-bottom:
 	color: #666;
 }
 
-p { @include grid-line(1, $margin-bottom: 1); text-indent: 1.6em; text-align: justify; }
+p { @include grid-line(1, $margin-bottom: 1); text-align: justify; }
 
 .math-formula-container {
 	width: 100%;
@@ -80,6 +80,10 @@ img {
 
 // START HERE STYLES
 
+ul, ol {
+	margin-left: 3em;
+}
+
 nav{
 	a {
 		color: $settings-colors-lightgray;
@@ -102,7 +106,8 @@ header {
 	> h1 > span { color: $settings-colors-blue; }
 }
 
-footer { text-align: center; }
+footer, #copyright > p { color: #333; text-align: center; }
+
 
 //* { transition: all 1s; }
 

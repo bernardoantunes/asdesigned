@@ -134,12 +134,22 @@ body {
 
 /* line 33, ../_sass/_asDesigned-Layout.scss */
 footer {
-  font-size: 0.75em;
-  line-height: 2.13333;
+  font-size: 0.8em;
+  line-height: 2;
   padding-top: 0;
   padding-bottom: 0;
-  margin-top: 2.13333em;
-  margin-bottom: 2.13333em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+/* line 35, ../_sass/_asDesigned-Layout.scss */
+footer #copyright > p {
+  font-size: 1em;
+  line-height: 2;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  color: #333;
 }
 
 /* line 12, ../_sass/_asDesigned-Style.scss */
@@ -216,7 +226,6 @@ p {
   padding-bottom: 0;
   margin-top: 0;
   margin-bottom: 1.6em;
-  text-indent: 1.6em;
   text-align: justify;
 }
 
@@ -267,31 +276,36 @@ img {
   max-width: 100%;
 }
 
-/* line 84, ../_sass/_asDesigned-Style.scss */
+/* line 83, ../_sass/_asDesigned-Style.scss */
+ul, ol {
+  margin-left: 3em;
+}
+
+/* line 88, ../_sass/_asDesigned-Style.scss */
 nav a {
   color: #eeeeee;
   font-weight: 800;
   text-transform: uppercase;
   text-decoration: none;
 }
-/* line 90, ../_sass/_asDesigned-Style.scss */
+/* line 94, ../_sass/_asDesigned-Style.scss */
 nav a:visited {
   color: #eeeeee;
 }
-/* line 91, ../_sass/_asDesigned-Style.scss */
+/* line 95, ../_sass/_asDesigned-Style.scss */
 nav a:hover {
   color: #79a7ec;
 }
-/* line 92, ../_sass/_asDesigned-Style.scss */
+/* line 96, ../_sass/_asDesigned-Style.scss */
 nav a.current {
   background-color: #ec79a7;
 }
-/* line 93, ../_sass/_asDesigned-Style.scss */
+/* line 97, ../_sass/_asDesigned-Style.scss */
 nav a:hover.current {
   color: #eeeeee;
 }
 
-/* line 96, ../_sass/_asDesigned-Style.scss */
+/* line 100, ../_sass/_asDesigned-Style.scss */
 header {
   font-size: 1.5em;
   line-height: 2.13333;
@@ -315,22 +329,23 @@ header {
   font-weight: 800;
   text-align: center;
 }
-/* line 101, ../_sass/_asDesigned-Style.scss */
+/* line 105, ../_sass/_asDesigned-Style.scss */
 header > h1 {
   color: #444444;
 }
-/* line 102, ../_sass/_asDesigned-Style.scss */
+/* line 106, ../_sass/_asDesigned-Style.scss */
 header > h1 > span {
   color: #79a7ec;
 }
 
-/* line 105, ../_sass/_asDesigned-Style.scss */
-footer {
+/* line 109, ../_sass/_asDesigned-Style.scss */
+footer, #copyright > p {
+  color: #333;
   text-align: center;
 }
 
 @media screen and (min-width: 40em) {
-  /* line 116, ../_sass/_asDesigned-Style.scss */
+  /* line 121, ../_sass/_asDesigned-Style.scss */
   header {
     font-size: 1.75em;
     line-height: 1.82857;
@@ -341,7 +356,7 @@ footer {
   }
 }
 @media screen and (min-width: 45em) {
-  /* line 123, ../_sass/_asDesigned-Style.scss */
+  /* line 128, ../_sass/_asDesigned-Style.scss */
   header {
     font-size: 2em;
     line-height: 1.6;
@@ -352,7 +367,7 @@ footer {
   }
 }
 @media screen and (min-width: 60em) {
-  /* line 130, ../_sass/_asDesigned-Style.scss */
+  /* line 135, ../_sass/_asDesigned-Style.scss */
   header {
     font-size: 2.5em;
     line-height: 1.92;

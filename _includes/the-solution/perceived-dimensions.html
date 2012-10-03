@@ -4,21 +4,22 @@
 
 <p>
 	To make a design to have the exact same dimensions as it was designed is good, but the goal of a design is not about millimetric precision, but perception precision.<br/>
-	What I mean with this is that it does not matter if that letter has the original size if the user is perceiving it from a completely different viewing distance.
+	What I mean with this is that it does not matter if that letter has the original size if the user is perceiving differently. For example, from completely different viewing distance.
 </p>
 
 <p>If we design a website in a 15 inches screen laptop at an approximated viewing distance of 20 inches, and the user will see it on an 50 inches at 75 inches distance, that nice and big quarter of an inch is not that big anymore, is it?</p>
 
 <p>A smartphone in front of your eyes can have the same perceived dimensions as a TV that is far away from you.</p>
 
-<p class="todo">
-Insert here:<br/>
-An illustration that shows the viewing angle for the two devices. Check your drawings. ;)
-</p>
+<object type="image/svg+xml" data="/img/viewperception.svg">
+	<img src="/img/viewperception.png" alt="As Designed Logo">
+</object>
+
+<p>In the  illustration above, a, b and c have the same perceived dimensions although they have very different sizes.</p>
 
 <p>This is why the second parameter of the asDesigned component is the viewing distance of the author. Knowing the viewing distance of the author, we know how he was perceiving his own design.</p>
 
-<p>Calculating the viewing angle of one unit at the author's viewing distance and the user's, we calculate the difference ratio and apply it to the global adjustment ratio.</p>
+<p>Calculating the viewing angle of one unit at the author's viewing distance and the user's, we can calculate the difference ratio and apply it to the global adjustment ratio of the design.</p>
 
 <div class="math-formula-container">
 <div class="math-formula">
@@ -26,21 +27,28 @@ An illustration that shows the viewing angle for the two devices. Check your dra
 </div>
 </div>
 
+<p>We use the formula above to calculate the angular diameter.</p>
+
 <div class="math-formula-container">
 <div class="math-formula">
 <p>`"adj" = "aDiam" / "uDiam"`</p>
 </div>
 </div>
 
-<p>When the screen is further away the font size and other dimensions are scaled up the and when the screen is closer we scale them down.</p>
+<p>Then we divide the author angular diameter of an unit with the users and we have the adjustment ration to apply to the global adjustment ratio.</p>
+
+<p>This is how we correct the perceived dimension, when the screen is further away the font size and other dimensions are scaled up the and when the screen is closer we scale them down.</p>
 
 <p>Now your design is perceived as you designed it, the perceived dimension and corresponding design and readability are preserved.</p>
 
 <p class="example">
-	Example: Select your device from the list to get the default viewing distance, and/or adjust/set the viewing distance.
-	If you are at 20 inches nothing will happen, because it was as I designed it, so you are seeing it the same way as I did.
-	But, if you put yourself further away and adjust the viewing distance, you will see that you will continue to see it with the same perceiving dimensions.
-	Press preview and play with it.
+	Try it yourself:<br/>
+	<ul>
+		<li>Select your device from the list to get the default viewing distance, and/or adjust/set the viewing distance.<br/>
+		If you are at 20 inches nothing will happen, because it was as I designed it, so you are seeing it the same way as I did.</li>
+		<li>But, if you put yourself further away and adjust the viewing distance, you will see that you will continue to see it with the same perceiving dimensions.</li>
+		<li>Press preview and play with it.</li>
+	</ul>
 </p>
 
 </section>
