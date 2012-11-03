@@ -18,7 +18,7 @@ $settings-colors-links: $settings-colors-blue;
 //Here I set the scale definitions.
 @function grid-modular-scale($multiple)
 {
-	@return modular-scale($multiple, 1 1.6, $golden $fourth);
+	@return modular-scale($multiple, 1 1.6, golden_ratio() fourth());
 }
 
 a, a:visited {

@@ -1,5 +1,10 @@
 ﻿@import "UnitGS";
 
+//Necessary to work with Windows 8 side mode.
+@-ms-viewport{
+    width: device-width;
+}
+
 $grid-debug: false;
 @if $grid-debug { body { color: #333; }}
 

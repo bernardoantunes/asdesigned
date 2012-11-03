@@ -105,6 +105,10 @@ textarea {
   padding: 0.2em 0;
 }
 
+@-ms-viewport {
+  width: device-width;
+}
+
 /* line 419, ../_sass/_UnitGS.scss */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, nav, section, menu, time, mark, audio, video, canvas {
   margin: 0;
@@ -118,13 +122,13 @@ body {
   line-height: 1.6em;
 }
 
-/* line 16, ../_sass/_asDesigned-Layout.scss */
+/* line 21, ../_sass/_asDesigned-Layout.scss */
 html {
   min-height: 100%;
   overflow: auto;
 }
 
-/* line 22, ../_sass/_asDesigned-Layout.scss */
+/* line 27, ../_sass/_asDesigned-Layout.scss */
 body {
   font-family: 'Open Sans',sans-serif;
   font-weight: 400;
@@ -132,7 +136,7 @@ body {
   overflow: auto;
 }
 
-/* line 33, ../_sass/_asDesigned-Layout.scss */
+/* line 38, ../_sass/_asDesigned-Layout.scss */
 footer {
   font-size: 0.8em;
   line-height: 2;
@@ -141,7 +145,7 @@ footer {
   margin-top: 2em;
   margin-bottom: 2em;
 }
-/* line 35, ../_sass/_asDesigned-Layout.scss */
+/* line 40, ../_sass/_asDesigned-Layout.scss */
 footer #copyright > p {
   font-size: 1em;
   line-height: 2;
